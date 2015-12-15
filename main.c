@@ -16,6 +16,6 @@ int main() {
         curList = curList->m_next;
     }
 
-    listDestroy(pListHeader);
+    listDestroy(&pListHeader);
     return 0;
 }

@@ -13,6 +13,6 @@ typedef struct {
 
 extern List* listNewElement(int );
 extern int listCount(List* );
-extern void listDestroy(List* );
+extern void listDestroy(List** );
 
 #endif

@@ -25,15 +25,15 @@ int listCount(List* pList) {
     return cnt;
 }
 
-void listDestroy(List* pList) {
+void listDestroy(List** pList) {
 
-    if (!pList)
+    if (!pList || !*pList)
         return;
 
     List* pTmpList = NULL;
     do {
-        pTmpList = pList->m_next;
-        free(pList);
-        pList = pTmpList;
+        pTmpList = (*pList)->m_next;
+        free(*pList);
+        *pList = pTmpList;
     } while (pTmpList);
 }
