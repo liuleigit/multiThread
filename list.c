@@ -1,9 +1,17 @@
 #include "List.h"
+#include <exception>
 
 List* listNewElement(int data) {
-    List* p = (List*)malloc(sizeof(List));
-    p->m_data = data;
-    p->m_next = NULL;
+    List* p = NULL;
+    try{
+        p = (List*)malloc(sizeof(List));
+        p->m_data = data;
+        p->m_next = NULL;
+    }
+    catch (exception e)
+    {
+        printf("Failed to create a new node for the list.")
+    }
     return p;
 }
 
@@ -14,9 +22,6 @@ int listCount(List* pList) {
     else
         ++cnt;
 
-    if (!pList->m_next)
-        return cnt;
-
     while (pList->m_next) {
         ++cnt;
         pList = pList->m_next;
@@ -25,7 +30,7 @@ int listCount(List* pList) {
     return cnt;
 }
 
-void listDestroy(List* pList) {
+void listDestroy(List*& pList) {
 
     if (!pList)
         return;
