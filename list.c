@@ -1,4 +1,4 @@
-#include "List.h"
+#include "list.h"
 
 List* listNewElement(int data) {
     List* p = (List*)malloc(sizeof(List));
